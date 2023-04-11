@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Solution
 {
-    public static void Main(string[] args)
+    private static void Main(string[] args)
     {
         Console.ReadLine();
         List<string> inputs = Console.ReadLine().Split(' ').ToList();
@@ -15,12 +15,15 @@ public class Solution
             inputs.Reverse();
         }
 
-        if (inputs.Contains("."))
+        if (inputs.Remove("."))
         {
-            inputs.Remove(".");
             inputs.Insert(inputs.Contains("-") ? 2 : inputs.Count - 1, ".");
         }
 
-        Console.WriteLine(double.Parse(String.Join(null, inputs)));
+        double result = double.Parse(String.Join(null, inputs));
+
+        //Cover the case -0
+        result = result == 0 ? 0 : result;
+        Console.WriteLine(result);
     }
 }

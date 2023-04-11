@@ -5,7 +5,7 @@ using System.Numerics;
 
 public class Solution
 {
-    public static void Main(string[] args)
+    private static void Main(string[] args)
     {
         int n = int.Parse(Console.ReadLine());
         string[] inputs = Console.ReadLine().Split(' ');
@@ -40,6 +40,7 @@ public class Solution
         }
         
         alphaLabel.Reverse();
+        
         return new String(alphaLabel.ToArray());
     }
     
